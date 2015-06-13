@@ -23,7 +23,7 @@ module.exports = function(jflo) {
                             return isNaN(part) ? part : ':idx';
                         })
                         .join(dutil.PATH_SEPARATOR);
-                    group[abstract_path] = (group[path] || 0) + 1;
+                    group[abstract_path] = (group[abstract_path] || 0) + 1;
                 })
                 if (++docs_processed % 1000 == 0) {
                     config.logger.debug.write(docs_processed + " documents analyzed");
