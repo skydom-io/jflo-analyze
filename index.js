@@ -21,7 +21,7 @@ module.exports = function(jflo) {
                 Object.keys(flat_data).forEach(function(path) {
                     var abstract_path = path.split(dutil.PATH_SEPARATOR)
                         .map(function(part) {
-                            return isNaN(part) ? part : ':idx';
+                            return isNaN(part) ? part : '*';
                         })
                         .join(dutil.PATH_SEPARATOR);
                     group[abstract_path] = (group[abstract_path] || 0) + 1;
