@@ -18,7 +18,7 @@ module.exports = function(jflo) {
                 var group = stats_by_group[group_id] = stats_by_group[group_id] || {};
                 var flat_data = dutil.flatten('', data);
                 Object.keys(flat_data).forEach(function(path) {
-                    group[path] = (group[path] + 0) + 1;
+                    group[path] = (group[path] || 0) + 1;
                 })
                 if (++docs_processed % 1000 == 0) {
                     config.logger.debug.write(docs_processed + " documents analyzed");
