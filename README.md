@@ -1,6 +1,6 @@
 # jflo-analyze
 
-Structural analysis filter for JFlo; computes attribute existence counts across a range of documents
+Structural analysis filter for JFlo; computes attribute existence counts across a range of documents.
   
 ## Usage
 
@@ -8,15 +8,15 @@ Structural analysis filter for JFlo; computes attribute existence counts across 
 
 ```npm install skydom-io/jflo-analyze```
 
-*myfile.ndjson* =>
+**pets.[ndjson] (https://github.com/ndjson/ndjson-spec)** =>
 
 ```json
-{ "category": "dog", "name": "Spot", "age": 10 }\n
-{ "category": "dog", "name": "Reef", "color": "brown"}\n
-{ "category": "cat", "name": "Kitty" }\n
+{ "category": "dog", "name": "Spot", "age": 10 }
+{ "category": "dog", "name": "Reef", "color": "brown"}
+{ "category": "cat", "name": "Kitty" }
 ```
 
-```cat myfile.ndjson | jflo analyze --group_by=category```
+```cat pets.ndjson | jflo analyze --group_by=category```
 
 => 
 
