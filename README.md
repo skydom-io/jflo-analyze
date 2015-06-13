@@ -1,6 +1,6 @@
 # jflo-analyze
 
-Structural analysis filter for JFlo; computes attribute existence counts across a range of documents.
+Structural analysis filter for [JFlo] (https://github.com/skydom-io/jflo); computes attribute existence counts across a range of documents.
   
 ## Usage
 
