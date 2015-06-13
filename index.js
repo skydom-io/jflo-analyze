@@ -7,6 +7,8 @@
 var eventstream = require('event-stream'),
     dutil       = require('./lib/util');
 
+var DELIMITER = '.';
+
 module.exports = function(jflo) {
     jflo.flow("analyze", function(config) {
             var params = config.params || {};
@@ -16,14 +18,14 @@ module.exports = function(jflo) {
             return eventstream.through(function(data) {
                 var group_id = jflo.util.fget(data, groupby_field_path) || "@uncategorized";
                 var group = stats_by_group[group_id] = stats_by_group[group_id] || {};
-                var flat_data = dutil.flatten('', data);
+                var flat_data = dutil.flatten('', data, {delimiter: DELIMITER});
                 group['@document_count'] = (group['@document_count'] || 0) + 1;
                 Object.keys(flat_data).forEach(function(path) {
-                    var abstract_path = path.split(dutil.PATH_SEPARATOR)
+                    var abstract_path = path.split(DELIMITER)
                         .map(function(part) {
                             return isNaN(part) ? part : '*';
                         })
-                        .join(dutil.PATH_SEPARATOR);
+                        .join(DELIMITER);
                     group[abstract_path] = (group[abstract_path] || 0) + 1;
                 })
                 if (++docs_processed % 1000 == 0) {
