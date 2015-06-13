@@ -9,6 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "event-stream": "^3.2.2"
+    "event-stream": "^3.2.2",
+    "flat": "^1.6.0"
   }
 }
