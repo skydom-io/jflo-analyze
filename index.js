@@ -17,6 +17,7 @@ module.exports = function(jflo) {
                 var group_id = jflo.util.fget(data, groupby_field_path) || "@uncategorized";
                 var group = stats_by_group[group_id] = stats_by_group[group_id] || {};
                 var flat_data = dutil.flatten('', data);
+                group['@document_count'] = (group['@document_count'] || 0) + 1;
                 Object.keys(flat_data).forEach(function(path) {
                     var abstract_path = path.split(dutil.PATH_SEPARATOR)
                         .map(function(part) {
