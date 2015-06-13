@@ -13,7 +13,7 @@ Structural analysis filter for JFlo; computes attribute existence counts across 
 ```json
 { "category": "dog", "name": "Spot", "age": 10 }\n
 { "category": "dog", "name": "Reef", "color": "brown"}\n
-{ "category": "cat": "name": "Kitty" }\n
+{ "category": "cat", "name": "Kitty" }\n
 ```
 
 ```cat myfile.ndjson | jflo analyze --group_by=category```
